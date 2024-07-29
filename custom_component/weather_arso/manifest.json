@@ -1,0 +1,9 @@
+{
+  "domain": "weather_arso",
+  "name": "ARSO Weather",
+  "documentation": "https://meteo.arso.gov.si/",
+  "dependencies": [],
+  "codeowners": [],
+  "requirements": ["feedparser==6.0.8"],
+  "version": "1.0.0"
+}
