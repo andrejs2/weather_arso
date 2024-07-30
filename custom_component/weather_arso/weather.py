@@ -7,7 +7,12 @@ from homeassistant.components.weather import (
 )
 from homeassistant.const import CONF_NAME
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
-from .weather_arso import get_arso_weather, get_arso_forecast_daily, get_arso_forecast_hourly, get_arso_forecast_twice_daily
+from .weather_arso import (
+    get_arso_weather,
+    get_arso_forecast_daily,
+    get_arso_forecast_hourly,
+    get_arso_forecast_twice_daily,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -91,7 +96,9 @@ class ARSOWeather(WeatherEntity):
             data = await self.hass.async_add_executor_job(get_arso_weather, self._station_id)
             if data:
                 _LOGGER.debug(f"Fetched ARSO weather data: {data}")
-                self._attributes = data
+                self._state = data.get("condition")
+                self._attributes.update(data)
+                
             self._forecast_daily = await self.hass.async_add_executor_job(get_arso_forecast_daily, self._station_id)
             self._forecast_hourly = await self.hass.async_add_executor_job(get_arso_forecast_hourly, self._station_id)
             self._forecast_twice_daily = await self.hass.async_add_executor_job(get_arso_forecast_twice_daily, self._station_id)
