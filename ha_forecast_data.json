@@ -1,0 +1,26 @@
+[
+    {
+        "condition": "wed  am -  clear",
+        "datetime": null,
+        "templow": null,
+        "temperature": null,
+        "precipitation": null,
+        "precipitation_probability": null
+    },
+    {
+        "condition": "pm -  mostly clear",
+        "datetime": null,
+        "templow": null,
+        "temperature": null,
+        "precipitation": null,
+        "precipitation_probability": null
+    },
+    {
+        "condition": "...",
+        "datetime": null,
+        "templow": null,
+        "temperature": null,
+        "precipitation": null,
+        "precipitation_probability": null
+    }
+]
